@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PhoneBookComponent } from './phone-book/phone-book.component';
 import { PhoneBookEditComponent } from './phone-book/phone-book-edit/phone-book-edit.component';
 import { PhoneBookListComponent } from './phone-book/phone-book-list/phone-book-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PhoneBookListComponent } from './phone-book/phone-book-list/phone-book-
     NavBarComponent,
     PhoneBookComponent,
     PhoneBookEditComponent,
-    PhoneBookListComponent
+    PhoneBookListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
