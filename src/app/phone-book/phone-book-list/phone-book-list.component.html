@@ -1,1 +1,3 @@
-<p>phone-book-list works!</p>
+<ul *ngForIn="let add in addressBook">
+    <li >{{add.firstName}}</li>
+</ul>
