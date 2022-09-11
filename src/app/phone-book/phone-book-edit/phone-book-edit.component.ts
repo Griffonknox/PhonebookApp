@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-phone-book-edit',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneBookEditComponent implements OnInit {
 
-  constructor() { }
+  PhBookForm: FormGroup;
+
+  constructor() {
+    this.PhBookForm = new FormGroup({});
+   }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  onSubmit() {
+    console.log(this.PhBookForm.value);
+  }
+
+
+  private initForm() {
+    this.PhBookForm = new FormGroup({
+      "firstName": new FormControl("", Validators.required),
+      "lastName": new FormControl("", Validators.required),
+      "phone": new FormControl("", Validators.required),
+      "address": new FormControl("", Validators.required),
+      "details": new FormControl("", Validators.required)
+    });
   }
 
 }

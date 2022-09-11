@@ -1,26 +1,32 @@
 <div class="cell">
-    <form>
+    <form [formGroup]="PhBookForm" (ngSubmit)="onSubmit()">
 
         <button class="btn btn-primary">Add</button>
+        <button class="btn btn-danger">Clear</button>
         <br>
         <div class="input-group">
             <label for="firstName">First Name:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="firstName">
         </div>
 
         <div class="input-group">
             <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="lastName">
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" formControlName="phone">
         </div>
 
         <div class="input-group">
             <label for="address">Adress:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="address">
         </div>
 
         <div class="input-group">
             <label for="details">Details:</label>
-            <textarea type="text" class="form-control" rows="3">How did you meet?</textarea>
+            <textarea type="text" class="form-control" rows="3" formControlName="details">Who?</textarea>
         </div>
 
     </form>

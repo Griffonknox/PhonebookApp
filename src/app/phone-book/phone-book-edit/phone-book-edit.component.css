@@ -3,3 +3,7 @@
     background-color: lightgrey;
     border-radius: 10px;
 }
+
+.cell button {
+    margin: 5px;
+}

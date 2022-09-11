@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PhoneBook } from '../phone-book.model';
+import { PhoneBookService } from '../phone-book.service';
 
 @Component({
   selector: 'app-phone-book-list',
@@ -7,24 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneBookListComponent implements OnInit {
   
-  addressBook = [
-    {firstName: "Test1",
-    lastName: "test2",
-    address: "asdflas;dkfj TX",
-    details: "friend I met at D&D"},
-    {firstName: "Test1",
-    lastName: "test2",
-    address: "asdflas;dkfj TX",
-    details: "friend I met at D&D"},
-    {firstName: "Test1",
-    lastName: "test2",
-    address: "asdflas;dkfj TX",
-    details: "friend I met at D&D"},
-]
+  loadedBook: PhoneBook[] = [];
   
-constructor() { }
+constructor(private phoneBookService: PhoneBookService) { }
 
   ngOnInit(): void {
+    this.loadedBook = this.phoneBookService.fetchPhoneBook();
   }
 
 }

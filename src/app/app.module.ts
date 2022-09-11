@@ -8,6 +8,7 @@ import { PhoneBookComponent } from './phone-book/phone-book.component';
 import { PhoneBookEditComponent } from './phone-book/phone-book-edit/phone-book-edit.component';
 import { PhoneBookListComponent } from './phone-book/phone-book-list/phone-book-list.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
