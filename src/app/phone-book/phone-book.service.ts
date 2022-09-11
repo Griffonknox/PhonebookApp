@@ -8,9 +8,9 @@ import { PhoneBook } from "./phone-book.model"
 
 export class PhoneBookService {
 
-    // loadedBook = new Subject<PhoneBook[]>();
+    phBookChanged = new Subject<PhoneBook[]>();
 
-    loadedBook = [
+    phBook: PhoneBook[] = [
         new PhoneBook("Scott", "Thompson", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Owner and Builder of App."),
         new PhoneBook("Bill", "Stevens", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Met at D@D."),
         new PhoneBook("Jessica", "Meyers", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Taekwondo specialist from Trivia."),
@@ -22,11 +22,13 @@ export class PhoneBookService {
 
 
     fetchPhoneBook() {
-        return this.loadedBook.slice();
+        return this.phBook.slice();
     }
 
-    addPhoneBook(pbook: PhoneBook) {
-        this.loadedBook.push(pbook);
+    addPhoneBook(phBook: PhoneBook) {
+        this.phBook.push(phBook);
+        this.phBookChanged.next(this.phBook.slice());
+        
     }
 
 }

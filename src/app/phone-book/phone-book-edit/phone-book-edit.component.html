@@ -1,7 +1,7 @@
 <div class="cell">
     <form [formGroup]="PhBookForm" (ngSubmit)="onSubmit()">
 
-        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" [disabled]="!PhBookForm.valid">Add</button>
         <button class="btn btn-danger">Clear</button>
         <br>
         <div class="input-group">

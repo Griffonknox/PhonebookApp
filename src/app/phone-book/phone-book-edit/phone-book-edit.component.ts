@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PhoneBook } from '../phone-book.model';
+import { PhoneBookService } from '../phone-book.service';
 
 @Component({
   selector: 'app-phone-book-edit',
@@ -10,7 +12,7 @@ export class PhoneBookEditComponent implements OnInit {
 
   PhBookForm: FormGroup;
 
-  constructor() {
+  constructor(private phoneBookService: PhoneBookService) {
     this.PhBookForm = new FormGroup({});
    }
 
@@ -19,7 +21,14 @@ export class PhoneBookEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.PhBookForm.value);
+    let firstName = this.PhBookForm.value.firstName;
+    let lastName = this.PhBookForm.value.lastName;
+    let phone = this.PhBookForm.value.phone;
+    let addres = this.PhBookForm.value.addres;
+    let details = this.PhBookForm.value.details;
+    let newPhoneBook = new PhoneBook(firstName, lastName, phone, addres, details);
+    this.phoneBookService.addPhoneBook(newPhoneBook);
+    this.PhBookForm.reset();
   }
 
 
