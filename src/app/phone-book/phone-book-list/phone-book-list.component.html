@@ -1,3 +1,13 @@
-<ul>
-    <li *ngFor="let add of loadedBook" >{{add.firstName}}</li>
-</ul>
+<!-- <ul>
+    <li >{{add.firstName}}</li>
+</ul> -->
+
+<div class="panel panel-default" *ngFor="let add of loadedBook" style="cursor: pointer;">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{add.firstName}} {{add.lastName}}  {{add.phone}}</h3>
+    </div>
+    <div class="panel-body">
+      <p><b>Address:</b> {{add.address}}</p>
+      <p class="body-detail"><b>Details:</b>{{add.details}}</p>
+    </div>
+  </div>

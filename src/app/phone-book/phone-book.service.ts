@@ -13,10 +13,7 @@ export class PhoneBookService {
     phBook: PhoneBook[] = [
         new PhoneBook("Scott", "Thompson", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Owner and Builder of App."),
         new PhoneBook("Bill", "Stevens", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Met at D@D."),
-        new PhoneBook("Jessica", "Meyers", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Taekwondo specialist from Trivia."),
-        new PhoneBook("Scott", "Thompson", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Owner and Builder of App."),
-        new PhoneBook("Bill", "Stevens", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Met at D@D."),
-        new PhoneBook("Jessica", "Meyers", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Taekwondo specialist from Trivia."),
+        new PhoneBook("Jessica", "Meyers", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Taekwondo specialist from Trivia.")
     ]
 
 
