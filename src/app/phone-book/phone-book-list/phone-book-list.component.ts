@@ -31,4 +31,9 @@ constructor(private phoneBookService: PhoneBookService) {
     // this.subsription.unsubscribe();
   }
 
+  onEdit(index: number) {
+  const phBook = this.phoneBookService.getphBook(index); 
+  console.log(phBook);
+  }
+
 }

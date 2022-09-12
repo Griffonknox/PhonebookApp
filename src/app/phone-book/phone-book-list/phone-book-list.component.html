@@ -1,8 +1,8 @@
 <!-- <ul>
     <li >{{add.firstName}}</li>
 </ul> -->
-
-<div class="panel panel-default" *ngFor="let add of loadedBook" style="cursor: pointer;">
+<a *ngFor="let add of loadedBook; let i = index" (click)="onEdit(i)">
+<div class="panel panel-default" style="cursor: pointer;">
     <div class="panel-heading">
       <h3 class="panel-title">{{add.firstName}} {{add.lastName}}  {{add.phone}}</h3>
     </div>
@@ -11,3 +11,4 @@
       <p class="body-detail"><b>Details:</b>{{add.details}}</p>
     </div>
   </div>
+</a>

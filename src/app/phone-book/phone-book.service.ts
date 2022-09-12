@@ -9,7 +9,8 @@ import { PhoneBook } from "./phone-book.model"
 export class PhoneBookService {
 
     phBookChanged = new Subject<PhoneBook[]>();
-
+    phBookEdited = new Subject<boolean>();
+    
     phBook: PhoneBook[] = [
         new PhoneBook("Scott", "Thompson", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Owner and Builder of App."),
         new PhoneBook("Bill", "Stevens", "956-451-6159", "1749 E 14th Pl, Tulsa OK 74104", "Met at D@D."),
@@ -25,7 +26,10 @@ export class PhoneBookService {
     addPhoneBook(phBook: PhoneBook) {
         this.phBook.push(phBook);
         this.phBookChanged.next(this.phBook.slice());
-        
+    }
+
+    getphBook(index: number) {
+        return this.phBook[index];
     }
 
 }
