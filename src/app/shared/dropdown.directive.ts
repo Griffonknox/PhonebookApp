@@ -1,13 +1,43 @@
-import { Directive, HostListener, HostBinding } from '@angular/core';
+import { Directive, HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appDropdown]'
 })
 export class DropdownDirective {
-  @HostBinding('class.open') isOpen = false;
+
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    this.renderer.addClass(this.el.nativeElement, "open");
+  }
+
+  @HostBinding('class.open') isOpen = true;
 
   @HostListener('click') toggleOpen() {
     console.log("testing directive fire");
-    this.isOpen = !this.isOpen;
+    let pBody = this.el.nativeElement.querySelector('.panel-body');
+    console.log(pBody);
+    if (this.isOpen) {
+      this.renderer.removeClass(pBody, "collapse");
+      this.isOpen = false;
+    } else {
+      this.renderer.addClass(pBody, "collapse");
+      this.isOpen = true;
+    }
   }
+
+
+  // @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
+  //   console.log("testing directive fire");
+  //   let pBody = this.el.nativeElement.querySelector('.panel-body');
+  //   console.log(pBody);
+  //   if (this.isOpen) {
+  //     this.renderer.removeClass(pBody, "collapse");
+  //     this.isOpen = false;
+  //   } else {
+  //     this.renderer.addClass(pBody, "collapse");
+  //     this.isOpen = true;
+  //   }
+  // }
+
+
+
 }
