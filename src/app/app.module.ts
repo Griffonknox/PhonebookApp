@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhoneBookDetailsComponent } from './phone-book/phone-book-list/phone-book-details/phone-book-details.component';
 import { PhoneBookFilterComponent } from './phone-book/phone-book-list/phone-book-filter/phone-book-filter.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PhoneBookFilterComponent } from './phone-book/phone-book-list/phone-boo
     PhoneBookListComponent,
     HomeComponent,
     PhoneBookDetailsComponent,
-    PhoneBookFilterComponent
+    PhoneBookFilterComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
