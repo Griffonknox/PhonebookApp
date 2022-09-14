@@ -9,6 +9,8 @@ import { PhoneBookEditComponent } from './phone-book/phone-book-edit/phone-book-
 import { PhoneBookListComponent } from './phone-book/phone-book-list/phone-book-list.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PhoneBookDetailsComponent } from './phone-book/phone-book-list/phone-book-details/phone-book-details.component';
+import { PhoneBookFilterComponent } from './phone-book/phone-book-list/phone-book-filter/phone-book-filter.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PhoneBookComponent,
     PhoneBookEditComponent,
     PhoneBookListComponent,
-    HomeComponent
+    HomeComponent,
+    PhoneBookDetailsComponent,
+    PhoneBookFilterComponent
   ],
   imports: [
     BrowserModule,

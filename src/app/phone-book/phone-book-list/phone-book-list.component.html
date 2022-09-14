@@ -1,14 +1,14 @@
-<!-- <ul>
-    <li >{{add.firstName}}</li>
-</ul> -->
-<a *ngFor="let add of loadedBook; let i = index" (click)="onEdit(i)">
-<div class="panel panel-default" style="cursor: pointer;">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{add.firstName}} {{add.lastName}}  {{add.phone}}</h3>
-    </div>
-    <div class="panel-body">
-      <p><b>Address:</b> {{add.address}}</p>
-      <p class="body-detail"><b>Details:</b>{{add.details}}</p>
-    </div>
+<div class="row">
+
+  <div class="col-xs-12">
+    <h3>Active PhoneBook <span class="glyphicon glyphicon-search" aria-hidden="true"></span></h3>
   </div>
-</a>
+
+  <app-phone-book-filter></app-phone-book-filter>
+
+  <app-phone-book-details 
+    *ngFor="let add of loadedBook; let i = index" 
+    [index]="i" 
+    [add]="add"></app-phone-book-details>
+
+</div>

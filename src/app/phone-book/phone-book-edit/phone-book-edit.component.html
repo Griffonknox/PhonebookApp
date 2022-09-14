@@ -1,30 +1,49 @@
 <div class="cell">
     <form [formGroup]="PhBookForm" (ngSubmit)="onSubmit()">
 
-        <button class="btn btn-primary" [disabled]="!PhBookForm.valid">Add</button>
-        <button class="btn btn-danger">Clear</button>
+        <button class="btn btn-primary btn-sm" [disabled]="!PhBookForm.valid" *ngIf="!editMode">Add</button>
+
+        <button class="btn btn-primary btn-sm" [disabled]="!PhBookForm.valid" *ngIf="editMode">Update</button>
+        <button class="btn btn-warning btn-sm" *ngIf="editMode" type="button" (click)="onDelete()">Delete</button>
+
+        <button class="btn btn-danger btn-sm" (click)="onReset()" type="button">Clear</button>
         <br>
-        <div class="input-group">
+        <div class="input-group input-width">
             <label for="firstName">First Name:</label>
             <input type="text" class="form-control" formControlName="firstName">
         </div>
 
-        <div class="input-group">
+        <div class="input-group input-width">
             <label for="lastName">Last Name:</label>
             <input type="text" class="form-control" formControlName="lastName">
         </div>
 
-        <div class="input-group">
-            <label for="phone">Phone</label>
+        <div class="input-group input-width">
+            <label for="phone">Phone:</label>
             <input type="text" class="form-control" formControlName="phone">
         </div>
 
-        <div class="input-group">
-            <label for="address">Adress:</label>
+        <div class="input-group input-width">
+            <label for="address">Sreet Adress:</label>
             <input type="text" class="form-control" formControlName="address">
         </div>
 
-        <div class="input-group">
+        <div class="input-group input-width">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" formControlName="city">
+        </div>
+
+        <div class="input-group input-width">
+            <label for="state">State:</label>
+            <input type="text" class="form-control" formControlName="state">
+        </div>
+
+        <div class="input-group input-width">
+            <label for="zip">zip:</label>
+            <input type="text" class="form-control" formControlName="zip">
+        </div>
+
+        <div class="input-group input-width">
             <label for="details">Details:</label>
             <textarea type="text" class="form-control" rows="3" formControlName="details">Who?</textarea>
         </div>

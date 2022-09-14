@@ -11,14 +11,14 @@ import { PhoneBookService } from '../phone-book.service';
 export class PhoneBookListComponent implements OnInit, OnDestroy {
   
   loadedBook: PhoneBook[] = [];
-  // subsription: Subscription;
+  private subscription!: Subscription;
   
 constructor(private phoneBookService: PhoneBookService) { 
 
 }
 
   ngOnInit(): void {
-    this.phoneBookService.phBookChanged
+    this.subscription = this.phoneBookService.phBookChanged
       .subscribe(
         (phBooks: PhoneBook[]) => {
           this.loadedBook = phBooks;
@@ -28,12 +28,7 @@ constructor(private phoneBookService: PhoneBookService) {
   }
 
   ngOnDestroy(): void {
-    // this.subsription.unsubscribe();
-  }
-
-  onEdit(index: number) {
-  const phBook = this.phoneBookService.getphBook(index); 
-  console.log(phBook);
+    this.subscription.unsubscribe();
   }
 
 }
