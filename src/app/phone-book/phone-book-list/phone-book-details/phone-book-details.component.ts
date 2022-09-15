@@ -17,7 +17,7 @@ export class PhoneBookDetailsComponent implements OnInit {
   }
 
   onEdit() {
-    this.phoneBookService.phBookEdited.next(+this.index);
+    // this.phoneBookService.phBookEdited.next(+this.index);
   }
 
 }

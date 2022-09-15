@@ -7,9 +7,9 @@
             <div class="pull-right"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> {{add.phone}}</div>
             </h3>
         </div>
-        <div class="panel-body collapse">
-          <p><b>Address:</b> {{add.address}}</p>
-          <p class="body-detail"><b>Details:</b>{{add.details}}</p>
+        <div class="panel-body collapse" id="{{index}}">
+          <p><b>Address:</b> {{add.address}} {{add.city}} {{add.state}} {{add.zip}}</p>
+          <p class="body-detail"><b>Details:</b> {{add.details}}</p>
         </div>
       </div>
     </a>

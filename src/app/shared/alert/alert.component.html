@@ -1,0 +1,14 @@
+<div class="backdrop">
+    <div class="alert-box">
+        <h4 class="text-center"><b>{{message}}</b></h4>
+        <p class="text-center"> {{phBook.firstName}} {{phBook.lastName}} - {{phBook.phone}}</p>
+        <span><b>Adress:</b> {{phBook.address}} {{phBook.city}} {{phBook.state}} {{phBook.zip}}</span><br>
+        <span><b>Details:</b> {{phBook.details}}</span>
+        <div class="alert-box-actions">
+            <button class="btn btn-primary" (click)="onConfirm()" type="button" *ngIf="type === 'delete'">Yes</button>
+            <button class="btn btn-primary" *ngIf="type === 'edit'">Yes</button>
+            <!-- <button class="btn btn-primary" (click)="onConfirm()">Yes</button>      -->
+            <button class="btn btn-danger" type="button" (click)="cancelModal()">Close</button>
+        </div>
+    </div>
+</div>

@@ -13,28 +13,48 @@ export class PhoneBookEditComponent implements OnInit, OnDestroy {
   PhBookForm: FormGroup;
   editMode = false;
   editedItemIndex: number = 0;
-  subscription!: Subscription;
+  subBook!: Subscription;
+  subModal!: Subscription;
+
+  modalMode: boolean = false;
+  modalType: string = "";
+  modalphBook!: PhoneBook;
 
   constructor(private phoneBookService: PhoneBookService) {
     this.PhBookForm = new FormGroup({});
    }
 
   ngOnInit(): void {
-    this.subscription = this.phoneBookService.phBookEdited
+    this.subBook = this.phoneBookService.phBookEdited
       .subscribe(
         (index: number) => {
-          this.editedItemIndex = index;
-          this.editMode = true;
-          this.initForm();
+          if (index == -1) {
+            this.editMode = false;
+            this.initForm();
+          } else {
+            this.editedItemIndex = index;
+            this.editMode = true;
+            this.initForm();
+          }
+        });
+      this.subModal = this.phoneBookService.phBookModal
+      .subscribe(
+        (obj: string) => {
+          if (obj != "close") {
+            this.editMode = false;
+            this.initForm();
+          }
+          this.modalMode = false;
         });
       this.initForm();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subBook.unsubscribe();
+    this.subModal.unsubscribe();
   }
 
-  onSubmit() {
+  private createPhBook() {
     let firstName = this.PhBookForm.value.firstName;
     let lastName = this.PhBookForm.value.lastName;
     let phone = this.PhBookForm.value.phone;
@@ -44,8 +64,14 @@ export class PhoneBookEditComponent implements OnInit, OnDestroy {
     let zip = this.PhBookForm.value.zip;
     let details = this.PhBookForm.value.details;
     let newPhoneBook = new PhoneBook(firstName, lastName, phone, address, city, state, zip, details);
+    return newPhoneBook
+  }
+
+  onSubmit() {
+    let newPhoneBook = this.createPhBook();
     if (this.editMode) {
       this.phoneBookService.editphBook(newPhoneBook, this.editedItemIndex)
+      this.modalMode = false;
     } else {
       this.phoneBookService.addPhoneBook(newPhoneBook);
     }
@@ -94,8 +120,19 @@ export class PhoneBookEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    this.phoneBookService.deletephBook(this.editedItemIndex);
-    this.onReset();
+    this.modalMode = true;
+    this.modalType = 'delete';
+    this.phoneBookService.phModalIndex = this.editedItemIndex;
+    this.modalphBook = this.createPhBook();
+  }
+
+
+  onEdit() {
+    this.modalMode = true;
+    this.modalType = 'edit';
+    this.phoneBookService.phModalIndex = this.editedItemIndex;
+    this.modalphBook = this.createPhBook();
+
   }
 
 }
