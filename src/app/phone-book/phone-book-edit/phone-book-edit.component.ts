@@ -13,7 +13,6 @@ export class PhoneBookEditComponent implements OnInit, OnDestroy {
   PhBookForm: FormGroup;
   editMode = false;
   editedItemIndex: number = 0;
-  editedPhBook!: PhoneBook;
   subscription!: Subscription;
 
   constructor(private phoneBookService: PhoneBookService) {

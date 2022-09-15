@@ -10,7 +10,8 @@ import { PhoneBookService } from '../phone-book.service';
 })
 export class PhoneBookListComponent implements OnInit, OnDestroy {
   
-  loadedBook: PhoneBook[] = [];
+  // loadedBook: PhoneBook[] = [];
+  loadedBook!: {[id: number]: PhoneBook};
   private subscription!: Subscription;
   
 constructor(private phoneBookService: PhoneBookService) { 
@@ -20,7 +21,7 @@ constructor(private phoneBookService: PhoneBookService) {
   ngOnInit(): void {
     this.subscription = this.phoneBookService.phBookChanged
       .subscribe(
-        (phBooks: PhoneBook[]) => {
+        (phBooks: {[id: number]: PhoneBook}) => {
           this.loadedBook = phBooks;
         }
       );

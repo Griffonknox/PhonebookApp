@@ -24,14 +24,14 @@ export class DropdownDirective {
   }
 
 
-  @HostListener('document:click', ['$event']) toggleClose(event: Event) {
-    console.log("testing directive fire");
-    let pBody = this.el.nativeElement.querySelector('.panel-body');
-    if (!this.isOpen) {
-      this.renderer.addClass(pBody, "collapse");
-      this.isOpen = true;
-    }
-  }
+  // @HostListener('document:click', ['$event']) toggleClose(event: Event) {
+  //   console.log("testing directive fire");
+  //   let pBody = this.el.nativeElement.querySelector('.panel-body');
+  //   if (!this.isOpen) {
+  //     this.renderer.addClass(pBody, "collapse");
+  //     this.isOpen = true;
+  //   }
+  // }
 
 
 

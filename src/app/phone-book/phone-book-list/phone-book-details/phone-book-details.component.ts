@@ -8,7 +8,7 @@ import { PhoneBookService } from '../../phone-book.service';
   styleUrls: ['./phone-book-details.component.css']
 })
 export class PhoneBookDetailsComponent implements OnInit {
-  @Input() index!: number;
+  @Input() index!: string;
   @Input() add!: PhoneBook;
 
   constructor(private phoneBookService: PhoneBookService) { }
@@ -17,7 +17,7 @@ export class PhoneBookDetailsComponent implements OnInit {
   }
 
   onEdit() {
-    this.phoneBookService.phBookEdited.next(this.index);
+    this.phoneBookService.phBookEdited.next(+this.index);
   }
 
 }

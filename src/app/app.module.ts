@@ -8,7 +8,7 @@ import { PhoneBookComponent } from './phone-book/phone-book.component';
 import { PhoneBookEditComponent } from './phone-book/phone-book-edit/phone-book-edit.component';
 import { PhoneBookListComponent } from './phone-book/phone-book-list/phone-book-list.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneBookDetailsComponent } from './phone-book/phone-book-list/phone-book-details/phone-book-details.component';
 import { PhoneBookFilterComponent } from './phone-book/phone-book-list/phone-book-filter/phone-book-filter.component';
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -28,7 +28,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhoneBookService } from '../../phone-book.service';
 
 @Component({
   selector: 'app-phone-book-filter',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./phone-book-filter.component.css']
 })
 export class PhoneBookFilterComponent implements OnInit {
+  filterName: string = "";
+  filterType: string = "name";
 
-  constructor() { }
+
+  constructor(private phoneBookService: PhoneBookService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  onFilter(){
+    this.phoneBookService.filterName = this.filterName;
+    this.phoneBookService.filterType =  this.filterType;
+    this.phoneBookService.phBookChanged.next(this.phoneBookService.fetchPhoneBook());
   }
 
 }

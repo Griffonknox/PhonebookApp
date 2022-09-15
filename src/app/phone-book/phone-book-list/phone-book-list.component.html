@@ -6,9 +6,9 @@
 
   <app-phone-book-filter></app-phone-book-filter>
 
-  <app-phone-book-details 
-    *ngFor="let add of loadedBook; let i = index" 
-    [index]="i" 
-    [add]="add"></app-phone-book-details>
+    <app-phone-book-details 
+    *ngFor="let add of loadedBook | keyvalue" 
+    [index]="add.key" 
+    [add]="add.value"></app-phone-book-details>
     
 </div>
