@@ -14,7 +14,6 @@ export class DropdownDirective {
   @HostListener('click') toggleOpen() {
     console.log("testing directive fire");
     let pBody = this.el.nativeElement.querySelector('.panel-body');
-    console.log(pBody);
     if (this.isOpen) {
       this.renderer.removeClass(pBody, "collapse");
       this.isOpen = false;
@@ -25,18 +24,14 @@ export class DropdownDirective {
   }
 
 
-  // @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
-  //   console.log("testing directive fire");
-  //   let pBody = this.el.nativeElement.querySelector('.panel-body');
-  //   console.log(pBody);
-  //   if (this.isOpen) {
-  //     this.renderer.removeClass(pBody, "collapse");
-  //     this.isOpen = false;
-  //   } else {
-  //     this.renderer.addClass(pBody, "collapse");
-  //     this.isOpen = true;
-  //   }
-  // }
+  @HostListener('document:click', ['$event']) toggleClose(event: Event) {
+    console.log("testing directive fire");
+    let pBody = this.el.nativeElement.querySelector('.panel-body');
+    if (!this.isOpen) {
+      this.renderer.addClass(pBody, "collapse");
+      this.isOpen = true;
+    }
+  }
 
 
 
