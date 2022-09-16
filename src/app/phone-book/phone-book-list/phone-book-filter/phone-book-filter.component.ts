@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PhoneBookService } from '../../phone-book.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { PhoneBookService } from '../../phone-book.service';
   templateUrl: './phone-book-filter.component.html',
   styleUrls: ['./phone-book-filter.component.css']
 })
-export class PhoneBookFilterComponent implements OnInit {
+export class PhoneBookFilterComponent  {
   filterName: string = "";
   filterType: string = "name";
 
 
   constructor(private phoneBookService: PhoneBookService) {
-  }
-
-  ngOnInit(): void {
   }
 
   onFilter(){

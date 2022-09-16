@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PhoneBook } from '../../phone-book.model';
 import { PhoneBookService } from '../../phone-book.service';
 
@@ -7,14 +7,11 @@ import { PhoneBookService } from '../../phone-book.service';
   templateUrl: './phone-book-details.component.html',
   styleUrls: ['./phone-book-details.component.css']
 })
-export class PhoneBookDetailsComponent implements OnInit {
+export class PhoneBookDetailsComponent {
   @Input() index!: string;
   @Input() add!: PhoneBook;
 
   constructor(private phoneBookService: PhoneBookService) { }
-
-  ngOnInit(): void {
-  }
 
   onEdit() {
     // this.phoneBookService.phBookEdited.next(+this.index);
